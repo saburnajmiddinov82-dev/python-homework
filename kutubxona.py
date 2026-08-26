@@ -4,7 +4,7 @@
 
 class Order:
     def __init__(self):
-        self.items = []  # (nomi, narxi, soni)
+        self.items = [] 
 
     def taom_qoshish(self, nomi, narxi, soni=1):
         self.items.append({"nomi": nomi, "narxi": narxi, "soni": soni})
