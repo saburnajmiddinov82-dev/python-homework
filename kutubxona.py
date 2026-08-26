@@ -74,7 +74,6 @@ class Order:
     def yakuniy_hisob(self):
         summa = self.summa_hisoblash()
 
-        # --- Conditional Logic (shart asosida yetkazib berish narxi) ---
         if summa >= 100000:
             yetkazib_berish = 0
         else:
@@ -88,7 +87,6 @@ class Order:
         return jami
 
 
-# --- Foydalanish ---
 order = Order()
 order.taom_qoshish("Osh", 35000, 2)
 order.taom_qoshish("Salat", 15000, 1)
