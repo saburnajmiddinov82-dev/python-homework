@@ -6,27 +6,16 @@ class Car:
         self.narxi = narxi
         self.tezligi = tezligi
 
-    def malumot(self):
-        print(f"model: {self.model}")
-        print(f"rang: {self.rang}")
-        print(f"yili: {self.yili}")
-        print(f"narxi: {self.narxi}")
-        print(f"tezligi: {self.tezligi}")
-
-    def fayl(self):
-        with open("example.txt", "a") as f:
-            f.write(f"model: {self.model}\n")
-            f.write(f"rang: {self.rang}\n")
-            f.write(f"yili: {self.yili}\n")
-            f.write(f"narxi: {self.narxi}\n")
-            f.write(f"tezligi: {self.tezligi}\n")
-            f.write("--------------------\n")
+    def saqla(self):
+        file = open("mashinalar.txt", "a")
+        file.write(f"{self.model},{self.rang},{self.yili},{self.narxi},{self.tezligi}\n")
+        file.close()
 
 
 while True:
-    print("1 - Mashina qo'shish")
-    print("2 - Mashina olish")
-    print("3 - Chiqish")
+    print("\n1. Mashina qo'shish")
+    print("2. Mashinalarni ko'rish")
+    print("3. Chiqish")
 
     tanlov = input("Tanlang: ")
 
@@ -38,29 +27,20 @@ while True:
         tezligi = input("Tezligi: ")
 
         mashina = Car(model, rang, yili, narxi, tezligi)
-        mashina.malumot()
-        mashina.fayl()
-        print("saqlandi\n")
+        mashina.saqla()
+
+        print("Saqlandi!")
 
     elif tanlov == "2":
-        qidiruv = input("Qaysi modelni qidiryapsiz: ")
+        file = open("mashinalar.txt", "r")
 
-        try:
-            with open("example.txt", "r") as f:
-                matn = f.read()
+        for mashina in file:
+            print(mashina.strip())
 
-            if qidiruv in matn:
-                print("\nTopildi,  "r")
-                print(matn)
-            else:
-                print("Bunday model topilmadi.\n")
-
-        except FileNotFoundError:
-            print("Hali hech qanday mashina qo'shilmagan.\n")
+        file.close()
 
     elif tanlov == "3":
-        print("Dastur tugadi")
         break
 
     else:
-        print("Noto'g'ri tanlov\n")
+        print("Noto'g'ri tanlov!")
