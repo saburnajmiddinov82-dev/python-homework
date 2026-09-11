@@ -50,12 +50,13 @@ while True:
                 matn = f.read()
 
             if qidiruv in matn:
-                print("\nTopildi:")
+                print("\nTopildi,  "r")
                 print(matn)
             else:
-                print("Bunday malmot topilmadi.\n")
+                print("Bunday model topilmadi.\n")
 
-    
+        except FileNotFoundError:
+            print("Hali hech qanday mashina qo'shilmagan.\n")
 
     elif tanlov == "3":
         print("Dastur tugadi")
